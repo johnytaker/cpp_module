@@ -6,11 +6,11 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/07 18:07:10 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/08 15:57:34 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
 CC = clang++
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-SRCS =	megaphone.cpp
+SRCS =	
 
 OBJS = $(SRCS:.cpp=.o)
 
