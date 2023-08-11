@@ -6,11 +6,11 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/08 15:57:34 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/08 20:03:27 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = megaphone
 
 CC = clang++
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-SRCS =	
+SRCS = megaphone.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -28,7 +28,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "\nmegaphone updated"
 
-$(OBJS)%.o: $(SRCS)%.cpp Makefile
+$(OBJS)%.o: $(SRCS)%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
