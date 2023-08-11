@@ -6,7 +6,7 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/10 17:03:38 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/11 12:02:35 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,22 +18,26 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-SRCS =	Contact.class.cpp 	\
-		PhoneBook.class.cpp	\
-		PhoneBook.utils.cpp	\
-		main.cpp
+INCLUDES =	Contact.class.hpp	\
+			PhoneBook.class.hpp	\
+			PhoneBook.utils.hpp
+
+
+SRCS =		Contact.class.cpp 	\
+			PhoneBook.class.cpp	\
+			PhoneBook.utils.cpp	\
+			main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(INCLUDES) Makefile
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "\ncrappybook updated"
 
 # $(OBJS)%.o: $(SRCS)%.cpp
 # 	$(CC) $(CFLAGS) -c $< -o $@
-
 
 clean :
 	$(RM) $(OBJS)

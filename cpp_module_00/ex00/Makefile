@@ -6,7 +6,7 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/08 20:03:27 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/11 13:01:31 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,12 @@ OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "\nmegaphone updated"
 
-$(OBJS)%.o: $(SRCS)%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+# $(OBJS)%.o: $(SRCS)%.cpp
+# 	$(CC) $(CFLAGS) -c $< -o $@
 
 
 clean :

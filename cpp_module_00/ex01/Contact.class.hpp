@@ -6,16 +6,14 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:28:47 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/10 13:20:39 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/11 13:04:06 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_HPP
 # define CONTACT_CLASS_HPP
 
-// # include <iostream>
 # include <string>
-// # include <iomanip>
 
 class Contact
 {

@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 21:23:06 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/09 22:44:21 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/11 16:14:51 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	main(void)
 		std::getline(std::cin, cmd);
 		if (cmd == "ADD")
 			pbook.addContact();
-		if (cmd == "SEARCH")
+		else if (cmd == "SEARCH")
 			pbook.searchContact();
-		if (std::cin.eof())
+		else if (std::cin.eof())
 		{
 			std::cout << std::endl;
 			return 0;

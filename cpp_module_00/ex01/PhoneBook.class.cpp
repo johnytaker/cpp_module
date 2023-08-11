@@ -6,29 +6,23 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:42:30 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/10 19:58:50 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/11 16:04:19 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.class.hpp"
 
-
 PhoneBook::PhoneBook(void)
 {
 	this->_index = 0;
-	this->_current = 0;
-	std::cout << "Welcome to my creepy PhoneBook!" << std::endl;
+	this->_isFull = false;
+	std::cout << "Welcome to my Crappy PhoneBook!" << std::endl;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "Bye Bye!" << std::endl;
+	std::cout << "Bye!" << std::endl;
 }
-
-// Contact PhoneBook::getContact(int index)
-// {
-// 	return this->_contacts[index % 8];
-// }
 
 void PhoneBook::addContact(void)
 {
@@ -54,20 +48,30 @@ void PhoneBook::addContact(void)
 	getInput("Enter a darkest secret: ", tempStr);
 	tempContact.setDarkestSecret(tempStr);
 	tempStr.erase();
-
-	this->_contacts[_current % 8] = tempContact;
-	this->_current++;
-	if (this->_current <= 8)
-		this->_index = this->_current;
+	
+	if (this->_index == 8)
+	{
+		this->_isFull = true;
+		this->_index = 0;
+	}
+	this->_contacts[_index] = tempContact;
+	this->_index++;
 }
 
 
-void PhoneBook::displayContacts()
+void PhoneBook::displayContacts(void)
 {
-	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
-	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	int	j;
 
-	for (int i = 0; i < (int)this->_index; i++)
+	std::cout << " ___________________________________________" << std::endl;
+	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
+	std::cout << "|__________|__________|__________|__________|" << std::endl;
+
+	if (this->_isFull)
+		j = 8;
+	else
+		j = this->_index;
+	for (int i = 0; i < j; i++)
 	{
 			std::cout
 			<< "|" << std::setw(10) << i + 1
@@ -84,7 +88,7 @@ void PhoneBook::searchContact(void)
 
 	displayContacts();
 
-	std::cout << "Enter the required index :";
+	std::cout << "Enter the required index: ";
 	std::cin >> index;
 
 	if (std::cin && index < (this->_index + 1))
@@ -98,4 +102,5 @@ void PhoneBook::searchContact(void)
 	else
 		std::cout << "Invalid index!" << std::endl;
 	std::cin.clear();
+	std::cin.ignore();
 }
