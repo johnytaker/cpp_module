@@ -6,11 +6,11 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/13 18:43:25 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/14 14:19:25 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = unnecessary_violence
+NAME = sed_if_for_losers
 
 CXX = g++
 
@@ -18,14 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-INCLUDES =	HumanA.hpp	\
-			HumanB.hpp	\
-			Weapon.hpp
-
-SRCS =		HumanA.cpp	\
-			HumanB.cpp	\
-			main.cpp	\
-			Weapon.cpp
+SRCS =	main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -33,19 +26,16 @@ all : $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "\nunnecessary_violence updated"
-
-# $(OBJS)%.o: $(SRCS)%.cpp
-# 	$(CXX) $(CFLAGS) -c $< -o $@
+	@echo "\nsed_if_for_losers updated"
 
 clean :
 	$(RM) $(OBJS)
-	@echo "\nunnecessary_violence clean done"
+	@echo "\nsed_if_for_losers clean done"
 
 fclean :
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
-	@echo "\nunnecessary_violence fclean done"
+	@echo "\nsed_if_for_losers fclean done"
 
 re : fclean all
 

@@ -6,19 +6,15 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:43:02 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/10 13:38:19 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/14 13:02:16 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
 
-Contact::Contact(void)
-{
-}
+Contact::Contact(void) {}
 
-Contact::~Contact(void)
-{
-}
+Contact::~Contact(void) {}
 
 std::string Contact::getFirstName(void) const
 {

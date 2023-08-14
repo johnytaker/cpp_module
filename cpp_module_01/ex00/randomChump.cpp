@@ -6,14 +6,14 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:22:41 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/13 14:24:37 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/14 13:41:31 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void randomChump(std::string name)
+void randomChump(std::string Name)
 {
-	Zombie chump = Zombie(name);
+	Zombie chump = Zombie(Name);
 	chump.announce();
 }

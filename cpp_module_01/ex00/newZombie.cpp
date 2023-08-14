@@ -6,13 +6,13 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:10:31 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/13 14:24:29 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/14 13:44:06 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Zombie.hpp"
 
-Zombie* newZombie(std::string name)
+Zombie* newZombie(std::string Name)
 {
-	return new Zombie(name);
+	return (new Zombie(Name));
 }

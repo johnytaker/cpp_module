@@ -6,7 +6,7 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/13 16:09:37 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/14 14:06:50 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,6 @@ all : $(NAME)
 $(NAME): $(OBJS) Makefile
 	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "\nhi_this_is_brain updated"
-
-# $(OBJS)%.o: $(SRCS)%.cpp
-# 	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)

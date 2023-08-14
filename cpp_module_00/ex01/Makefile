@@ -6,7 +6,7 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/11 20:36:15 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/14 13:03:27 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,6 @@ $(NAME): $(OBJS) $(INCLUDES) Makefile
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "\ncrappybook updated"
 
-# $(OBJS)%.o: $(SRCS)%.cpp
-# 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)
@@ -49,6 +47,5 @@ fclean :
 	@echo "\ncrappybook fclean done"
 
 re : fclean all
-
 
 .PHONY : all clean fclean re

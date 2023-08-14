@@ -6,21 +6,11 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 16:15:35 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/11 15:55:41 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/14 13:17:50 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.utils.hpp"
-
-// void getInput(const std::string& prompt, std::string& input)
-// {
-// 	while (!std::cin.eof() && input.empty())
-// 	{
-//         std::cout << prompt;
-//         if (std::getline(std::cin, input) && !input.empty())
-//             break;
-//     }
-// }
 
 void getInput(const std::string& prompt, std::string& input)
 {

@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:42:30 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/11 20:33:23 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/14 13:04:28 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 PhoneBook::PhoneBook(void)
 {
 	this->_index = 0;
-	this->_isFull = false;
+	this->_currentIndex = 0;
 	std::cout << "Welcome to my Crappy PhoneBook!" << std::endl;
 }
 
@@ -49,29 +49,21 @@ void PhoneBook::addContact(void)
 	tempContact.setDarkestSecret(tempStr);
 	tempStr.erase();
 
-	if (this->_index == 8)
-	{
-		this->_isFull = true;
-		this->_index = 0;
-	}
-	this->_contacts[_index] = tempContact;
-	this->_index++;
+	this->_contacts[_currentIndex % 8] = tempContact;
+	this->_currentIndex++;
+	if (this->_currentIndex <= 8)
+		this->_index = this->_currentIndex;
 }
 
 
 void PhoneBook::displayContacts(void)
 {
-	int	j;
 
 	std::cout << " ___________________________________________" << std::endl;
 	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
 	std::cout << "|__________|__________|__________|__________|" << std::endl;
 
-	if (this->_isFull)
-		j = 8;
-	else
-		j = this->_index;
-	for (int i = 0; i < j; i++)
+	for (int i = 0; i < this->_index; i++)
 	{
 			std::cout
 			<< "|" << std::setw(10) << i + 1
@@ -102,5 +94,5 @@ void PhoneBook::searchContact(void)
 	else
 		std::cout << "Invalid index!" << std::endl;
 	std::cin.clear();
-	std::cin.ignore();
+	std::cin.ignore(INT8_MAX, '\n');
 }

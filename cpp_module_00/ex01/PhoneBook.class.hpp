@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:54:58 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/11 20:33:19 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/14 13:00:20 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class PhoneBook
 	private:
 		Contact	_contacts[8];
 		int		_index;
-		bool	_isFull;
+		int		_currentIndex;
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);

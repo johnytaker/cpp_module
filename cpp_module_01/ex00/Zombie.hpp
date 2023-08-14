@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:48:39 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/13 14:25:53 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/14 13:41:25 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ class Zombie
 	private:
 		std::string name;
 	public:
-		Zombie(std::string zombieName);
+		Zombie(std::string Name);
 		~Zombie(void);
 		void announce(void);
 };
 
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
+Zombie* newZombie(std::string Name);
+void randomChump(std::string Name);
 
 #endif
