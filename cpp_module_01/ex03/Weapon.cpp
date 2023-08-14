@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 15:54:58 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/11 20:33:19 by iugolin          ###   ########.fr       */
+/*   Created: 2023/08/13 16:10:52 by iugolin           #+#    #+#             */
+/*   Updated: 2023/08/13 18:40:25 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_HPP
-# define PHONEBOOK_CLASS_HPP
+#include "Weapon.hpp"
 
-# include "Contact.class.hpp"
-# include "PhoneBook.utils.hpp"
-# include <iostream>
-# include <iomanip>
-# include <string>
+Weapon::Weapon(std::string type) : type(type) {}
 
+Weapon::~Weapon(void) {}
 
-class PhoneBook
+const std::string &Weapon::getType(void)
 {
-	private:
-		Contact	_contacts[8];
-		int		_index;
-		bool	_isFull;
-	public:
-		PhoneBook(void);
-		~PhoneBook(void);
-		void addContact(void);
-		void displayContacts(void);
-		void searchContact(void);
-};
-
-#endif
+	return this->type;
+}
+void Weapon::setType(std::string type)
+{
+	this->type = type;
+}

@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:42:30 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/11 16:04:19 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:33:23 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void PhoneBook::addContact(void)
 	getInput("Enter a darkest secret: ", tempStr);
 	tempContact.setDarkestSecret(tempStr);
 	tempStr.erase();
-	
+
 	if (this->_index == 8)
 	{
 		this->_isFull = true;
