@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:42:30 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/14 13:04:28 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/14 19:26:09 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void PhoneBook::displayContacts(void)
 
 void PhoneBook::searchContact(void)
 {
-	unsigned int index;
+	int index;
 
 	displayContacts();
 
