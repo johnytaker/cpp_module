@@ -6,26 +6,24 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/14 19:28:28 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/22 13:11:35 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = crappybook
 
-CXX = g++
+CXX = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-INCLUDES =	Contact.class.hpp	\
-			PhoneBook.class.hpp	\
-			PhoneBook.utils.hpp
+INCLUDES =	Contact.hpp		\
+			PhoneBook.hpp
 
 
-SRCS =		Contact.class.cpp 	\
-			PhoneBook.class.cpp	\
-			PhoneBook.utils.cpp	\
+SRCS =		Contact.cpp 	\
+			PhoneBook.cpp	\
 			main.cpp
 
 OBJS = $(SRCS:.cpp=.o)

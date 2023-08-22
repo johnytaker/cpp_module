@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:42:30 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/14 19:26:09 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/22 15:36:06 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.class.hpp"
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void)
 {
@@ -31,28 +31,25 @@ void PhoneBook::addContact(void)
 
 	getInput("Enter a first name: ", tempStr);
 	tempContact.setFirstName(tempStr);
-	tempStr.erase();
 
 	getInput("Enter a last name: ", tempStr);
 	tempContact.setLastName(tempStr);
-	tempStr.erase();
 
 	getInput("Enter a nickame: ", tempStr);
 	tempContact.setNickname(tempStr);
-	tempStr.erase();
 
 	getInput("Enter a phone number: ", tempStr);
 	tempContact.setPhoneNumber(tempStr);
-	tempStr.erase();
 
 	getInput("Enter a darkest secret: ", tempStr);
 	tempContact.setDarkestSecret(tempStr);
-	tempStr.erase();
 
 	this->_contacts[_currentIndex % 8] = tempContact;
 	this->_currentIndex++;
 	if (this->_currentIndex <= 8)
 		this->_index = this->_currentIndex;
+	else
+		std::cout << "The contact with index "<< _currentIndex % 8  << " will be overwritten!" << std::endl;
 }
 
 
@@ -94,5 +91,25 @@ void PhoneBook::searchContact(void)
 	else
 		std::cout << "Invalid index!" << std::endl;
 	std::cin.clear();
-	std::cin.ignore(INT8_MAX, '\n');
+	std::cin.ignore(256, '\n');
+}
+
+void getInput(const std::string& prompt, std::string& input)
+{
+	while (1)
+	{
+		std::cout << prompt;
+		if (std::getline(std::cin, input) && !input.empty())
+			break;
+	}
+}
+
+std::string	resizeField(std::string text)
+{
+	if (text.length() > 10)
+	{
+		text.erase(text.begin() + 9, text.end());
+		text.append(".");
+	}
+	return (text);
 }

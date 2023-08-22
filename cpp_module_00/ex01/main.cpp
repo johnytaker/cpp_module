@@ -6,11 +6,11 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 21:23:06 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/14 13:16:59 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/20 16:52:33 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.class.hpp"
+#include "PhoneBook.hpp"
 
 int	main(void)
 {
@@ -25,8 +25,6 @@ int	main(void)
 			pbook.addContact();
 		else if (cmd == "SEARCH")
 			pbook.searchContact();
-		else
-			std::cout << "Wrong command!" << std::endl;
 	}
 	return (0);
 }
