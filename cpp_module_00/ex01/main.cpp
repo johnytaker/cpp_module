@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 21:23:06 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/20 16:52:33 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/23 18:04:49 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,8 @@
 
 int	main(void)
 {
-	PhoneBook 	pbook;
-	std::string	cmd;
+	PhoneBook pbook;
 
-	while (cmd != "EXIT")
-	{
-		std::cout << "Enter a command: ";
-		std::getline(std::cin, cmd);
-		if (cmd == "ADD")
-			pbook.addContact();
-		else if (cmd == "SEARCH")
-			pbook.searchContact();
-	}
+	pbook.run();
 	return (0);
 }

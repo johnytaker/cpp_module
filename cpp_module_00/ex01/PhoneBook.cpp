@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:42:30 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/22 15:36:06 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/23 22:01:25 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 PhoneBook::PhoneBook(void)
 {
-	this->_index = 0;
+	this->_indexFiller = 0;
 	this->_currentIndex = 0;
-	std::cout << "Welcome to my Crappy PhoneBook!" << std::endl;
+	std::cout << colorString("CMD: |ADD| |SEARCH| |EXIT|", CYAN) << std::endl;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "Bye!" << std::endl;
+	std::cout << colorString("No contacts - no problems!", CYAN) << std::endl;
 }
 
 void PhoneBook::addContact(void)
@@ -47,27 +47,30 @@ void PhoneBook::addContact(void)
 	this->_contacts[_currentIndex % 8] = tempContact;
 	this->_currentIndex++;
 	if (this->_currentIndex <= 8)
-		this->_index = this->_currentIndex;
+		this->_indexFiller = this->_currentIndex;
 	else
-		std::cout << "The contact with index "<< _currentIndex % 8  << " will be overwritten!" << std::endl;
+		std::cout << GREEN
+		<< "The contact with index #" << _currentIndex % 8 << " is overwritten!"
+		<< RESET << std::endl;
 }
 
 
 void PhoneBook::displayContacts(void)
 {
+	std::cout << GREEN << " " << std::setfill('_') << std::setw(44) << " " << std::endl;
+	std::cout << "|" << std::setfill(' ') << std::setw(10)  << "INDEX";
+	std::cout << "|" << std::setfill(' ') << std::setw(10)  << "FIRST NAME";
+	std::cout << "|" << std::setfill(' ') << std::setw(10)  << "LAST NAME";
+	std::cout << "|" << std::setfill(' ') << std::setw(10)  << "NICKNAME" << "|" << RESET << std::endl;
 
-	std::cout << " ___________________________________________" << std::endl;
-	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
-	std::cout << "|__________|__________|__________|__________|" << std::endl;
-
-	for (int i = 0; i < this->_index; i++)
+	for (int i = 0; i < this->_indexFiller; i++)
 	{
 			std::cout
-			<< "|" << std::setw(10) << i + 1
-			<< "|" << std::setw(10) << resizeField(_contacts[i].getFirstName())
-			<< "|" << std::setw(10) << resizeField(_contacts[i].getLastName())
-			<< "|" << std::setw(10) << resizeField(_contacts[i].getNickname())
-			<< "|" << std::endl;
+			<< colorString("|", GREEN) << std::setw(10) << i + 1
+			<< colorString("|", GREEN) << std::setw(10) << resizeField(_contacts[i].getFirstName())
+			<< colorString("|", GREEN) << std::setw(10) << resizeField(_contacts[i].getLastName())
+			<< colorString("|", GREEN) << std::setw(10) << resizeField(_contacts[i].getNickname())
+			<< colorString("|", GREEN) << std::endl;
 	}
 }
 
@@ -77,28 +80,48 @@ void PhoneBook::searchContact(void)
 
 	displayContacts();
 
-	std::cout << "Enter the required index: ";
+	std::cout << colorString("Enter the required index: ", GREEN);
 	std::cin >> index;
 
-	if (std::cin && index < (this->_index + 1))
+	if (std::cin && index < (this->_indexFiller + 1))
 	{
-		std::cout << "First name: " << this->_contacts[index - 1].getFirstName() << std::endl;
-		std::cout << "Last name: " << this->_contacts[index - 1].getLastName() << std::endl;
-		std::cout << "Nickname: " << this->_contacts[index - 1].getNickname() << std::endl;
-		std::cout << "Phone number: " << this->_contacts[index - 1].getPhoneNumber() << std::endl;
-		std::cout << "Darkest secret: " << this->_contacts[index -1].getDarkestSecret() << std::endl;
+		std::cout << colorString("First name: ", GREEN) << this->_contacts[index - 1].getFirstName() << std::endl;
+		std::cout << colorString("Last name: ", GREEN) << this->_contacts[index - 1].getLastName() << std::endl;
+		std::cout << colorString("Nickname: ", GREEN) << this->_contacts[index - 1].getNickname() << std::endl;
+		std::cout << colorString("Phone number: ", GREEN) << this->_contacts[index - 1].getPhoneNumber() << std::endl;
+		std::cout << colorString("Darkest secret: ", GREEN) << this->_contacts[index -1].getDarkestSecret() << std::endl;
 	}
 	else
-		std::cout << "Invalid index!" << std::endl;
+		std::cout << colorString("Invalid index!", RED) << std::endl;
 	std::cin.clear();
 	std::cin.ignore(256, '\n');
+}
+
+void PhoneBook::run(void)
+{
+	std::string cmd;
+	while (1)
+	{
+		std::cout << colorString("Enter a command: ", GREEN);
+		std::getline(std::cin, cmd);
+
+		if (cmd == "ADD")
+			this->addContact();
+		else if (cmd == "SEARCH")
+			this->searchContact();
+		else if (cmd == "EXIT")
+			return ;
+		else
+			std::cout << colorString("Wrong command!", RED) << std::endl;
+	}
+
 }
 
 void getInput(const std::string& prompt, std::string& input)
 {
 	while (1)
 	{
-		std::cout << prompt;
+		std::cout << colorString(prompt, GREEN);
 		if (std::getline(std::cin, input) && !input.empty())
 			break;
 	}
@@ -112,4 +135,11 @@ std::string	resizeField(std::string text)
 		text.append(".");
 	}
 	return (text);
+}
+
+std::string colorString(std::string str, std::string color)
+{
+	std::string ret;
+
+	return (ret.append(color).append(str).append(RESET));
 }
