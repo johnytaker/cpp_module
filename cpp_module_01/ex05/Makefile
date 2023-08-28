@@ -6,13 +6,13 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/17 13:16:37 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/24 13:15:11 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = harl_2.0
 
-CXX = g++
+CXX = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 

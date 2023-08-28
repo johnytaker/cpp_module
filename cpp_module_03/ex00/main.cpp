@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 20:07:57 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/24 12:16:10 by iugolin          ###   ########.fr       */
+/*   Created: 2023/08/28 18:12:37 by iugolin           #+#    #+#             */
+/*   Updated: 2023/08/28 18:25:36 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ClapTrap.hpp"
 
-Zombie::Zombie(std::string Name) : name(Name) {}
+int main (void)
+{
+	ClapTrap *tmp1 = new ClapTrap("Spring");
+	ClapTrap *tmp2 = new ClapTrap();
 
-Zombie::~Zombie(void)
-{
-	std::cout << this->name << " died... again" << std::endl;
-}
-void Zombie::announce(void)
-{
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	tmp1->attack("Somebody");
+	tmp2->takeDamage(5);
+	tmp2->beRepaired(4);
+	tmp1->takeDamage(10);
+	tmp1->attack("Stranger");
+	tmp1->beRepaired(10);
+	tmp1->takeDamage(1);
+
+	delete tmp1;
+	delete tmp2;
+	return (0);
 }

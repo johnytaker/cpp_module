@@ -6,20 +6,19 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/14 19:28:44 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/24 12:16:31 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = BraiiiiiiinnnzzzZ
 
-CXX = g++
+CXX = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
 INCLUDES =	Zombie.hpp
-
 
 SRCS =		newZombie.cpp 	\
 			randomChump.cpp	\

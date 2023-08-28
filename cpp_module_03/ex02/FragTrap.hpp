@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 20:07:57 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/24 12:16:10 by iugolin          ###   ########.fr       */
+/*   Created: 2023/08/29 00:10:40 by iugolin           #+#    #+#             */
+/*   Updated: 2023/08/29 00:12:08 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAPRAP_HPP
 
-Zombie::Zombie(std::string Name) : name(Name) {}
+class 
 
-Zombie::~Zombie(void)
-{
-	std::cout << this->name << " died... again" << std::endl;
-}
-void Zombie::announce(void)
-{
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+
+ #endif

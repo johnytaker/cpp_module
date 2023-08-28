@@ -6,13 +6,13 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/14 19:30:05 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/24 13:15:06 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = sed_if_for_losers
 
-CXX = g++
+CXX = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 

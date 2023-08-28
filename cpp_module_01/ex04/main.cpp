@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 21:50:01 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/16 20:36:57 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/24 13:16:29 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int usage(const char *programName)
 {
 	std::cerr << "Wrong number of arguments!" << std::endl
-		<< "USAGE:" << programName << "[filename] [string_to_replace] [new_string]" << std::endl;
+		<< "USAGE: " << programName << " [filename] [string_to_replace] [new_string]" << std::endl;
 	return (1);
 }
 

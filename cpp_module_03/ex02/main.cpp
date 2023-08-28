@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 20:07:57 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/24 12:16:10 by iugolin          ###   ########.fr       */
+/*   Created: 2023/08/28 18:12:37 by iugolin           #+#    #+#             */
+/*   Updated: 2023/08/28 20:17:59 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-Zombie::Zombie(std::string Name) : name(Name) {}
+int main (void)
+{
+	ScavTrap first("Spring");
+	first.guardGate();
+	first.attack("Somebody");
+	first.takeDamage(70);
 
-Zombie::~Zombie(void)
-{
-	std::cout << this->name << " died... again" << std::endl;
-}
-void Zombie::announce(void)
-{
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	ScavTrap second("Summer");
+	second.takeDamage(99);
+	second.beRepaired(100);
+	return (0);
 }

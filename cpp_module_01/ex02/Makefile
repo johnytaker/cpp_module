@@ -6,13 +6,13 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/14 19:29:21 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/24 13:14:54 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = hi_this_is_brain
 
-CXX = g++
+CXX = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 

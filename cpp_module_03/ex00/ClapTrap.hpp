@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 13:54:42 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/25 21:07:27 by iugolin          ###   ########.fr       */
+/*   Created: 2023/08/26 12:53:44 by iugolin           #+#    #+#             */
+/*   Updated: 2023/08/28 19:28:30 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
+# include <string>
 # include <iostream>
-# include <cmath>
 
-class Fixed
+class ClapTrap
 {
 	public:
-		Fixed();
-		Fixed(int const num);
-		Fixed(float const num);
-		Fixed(Fixed const & other);
-		Fixed & operator=(Fixed const & other);
-		~Fixed();
+		ClapTrap(void);
+		ClapTrap(std::string const name);
+		ClapTrap(ClapTrap & other);
+		~ClapTrap(void);
 
-		float toFloat(void) const;
-		int toInt(void) const;
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
+		ClapTrap & operator=(ClapTrap const & rhs);
+
+		void attack(const std::string & target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+
 	private:
-		int fixedPoint;
-		static const int fractionalBits = 8;
+		std::string const _name;
+		unsigned int hitPoints;
+		unsigned int energyPoints;
+		unsigned int attackDamage;
 };
-
-std::ostream & operator<<(std::ostream & os, Fixed const & i);
 
 #endif

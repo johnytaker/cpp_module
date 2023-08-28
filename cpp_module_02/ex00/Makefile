@@ -6,13 +6,13 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/19 16:43:57 by iugolin          ###   ########.fr        #
+#    Updated: 2023/08/25 21:25:27 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = first_osm
+NAME = fp_numbers
 
-CXX = g++
+CXX = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -29,19 +29,19 @@ all : $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "\nfirst_osm updated"
+	@echo "\nfp_numbers updated"
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)
-	@echo "\nfirst_osm clean done"
+	@echo "\nfp_numbers clean done"
 
 fclean :
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
-	@echo "\nfirst_osm fclean done"
+	@echo "\nfp_numbers fclean done"
 
 re : fclean all
 

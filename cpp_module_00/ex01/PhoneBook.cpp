@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:42:30 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/23 22:01:25 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/24 12:03:21 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ PhoneBook::PhoneBook(void)
 {
 	this->_indexFiller = 0;
 	this->_currentIndex = 0;
-	std::cout << colorString("CMD: |ADD| |SEARCH| |EXIT|", CYAN) << std::endl;
+	std::cout << colorString("CMD: |ADD| |SEARCH| |EXIT|", GREEN) << std::endl;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << colorString("No contacts - no problems!", CYAN) << std::endl;
+	std::cout << colorString("No contacts - no problems!", GREEN) << std::endl;
 }
 
 void PhoneBook::addContact(void)
@@ -72,39 +72,43 @@ void PhoneBook::displayContacts(void)
 			<< colorString("|", GREEN) << std::setw(10) << resizeField(_contacts[i].getNickname())
 			<< colorString("|", GREEN) << std::endl;
 	}
+	std::cout << GREEN << "|" << std::setfill('_') << std::setw(44) << "|" << std::endl;
 }
 
 void PhoneBook::searchContact(void)
 {
 	int index;
 
-	displayContacts();
-
-	std::cout << colorString("Enter the required index: ", GREEN);
-	std::cin >> index;
-
-	if (std::cin && index < (this->_indexFiller + 1))
-	{
-		std::cout << colorString("First name: ", GREEN) << this->_contacts[index - 1].getFirstName() << std::endl;
-		std::cout << colorString("Last name: ", GREEN) << this->_contacts[index - 1].getLastName() << std::endl;
-		std::cout << colorString("Nickname: ", GREEN) << this->_contacts[index - 1].getNickname() << std::endl;
-		std::cout << colorString("Phone number: ", GREEN) << this->_contacts[index - 1].getPhoneNumber() << std::endl;
-		std::cout << colorString("Darkest secret: ", GREEN) << this->_contacts[index -1].getDarkestSecret() << std::endl;
-	}
+	if (this->_currentIndex == 0)
+		std::cout << colorString("PhoneBook is empty!", RED) << std::endl;
 	else
-		std::cout << colorString("Invalid index!", RED) << std::endl;
-	std::cin.clear();
-	std::cin.ignore(256, '\n');
+	{
+		displayContacts();
+		std::cout << colorString("Enter the required index: ", GREEN);
+		std::cin >> index;
+		if (std::cin && index < (this->_indexFiller + 1))
+		{
+			std::cout << colorString("First name: ", GREEN) << this->_contacts[index - 1].getFirstName() << std::endl;
+			std::cout << colorString("Last name: ", GREEN) << this->_contacts[index - 1].getLastName() << std::endl;
+			std::cout << colorString("Nickname: ", GREEN) << this->_contacts[index - 1].getNickname() << std::endl;
+			std::cout << colorString("Phone number: ", GREEN) << this->_contacts[index - 1].getPhoneNumber() << std::endl;
+			std::cout << colorString("Darkest secret: ", GREEN) << this->_contacts[index -1].getDarkestSecret() << std::endl;
+		}
+		else
+			std::cout << colorString("Invalid index!", RED) << std::endl;
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 }
 
 void PhoneBook::run(void)
 {
 	std::string cmd;
+
 	while (1)
 	{
 		std::cout << colorString("Enter a command: ", GREEN);
 		std::getline(std::cin, cmd);
-
 		if (cmd == "ADD")
 			this->addContact();
 		else if (cmd == "SEARCH")
@@ -115,16 +119,6 @@ void PhoneBook::run(void)
 			std::cout << colorString("Wrong command!", RED) << std::endl;
 	}
 
-}
-
-void getInput(const std::string& prompt, std::string& input)
-{
-	while (1)
-	{
-		std::cout << colorString(prompt, GREEN);
-		if (std::getline(std::cin, input) && !input.empty())
-			break;
-	}
 }
 
 std::string	resizeField(std::string text)
@@ -142,4 +136,14 @@ std::string colorString(std::string str, std::string color)
 	std::string ret;
 
 	return (ret.append(color).append(str).append(RESET));
+}
+
+void getInput(const std::string& prompt, std::string& input)
+{
+	while (1)
+	{
+		std::cout << colorString(prompt, GREEN);
+		if (std::getline(std::cin, input) && !input.empty())
+			break;
+	}
 }
