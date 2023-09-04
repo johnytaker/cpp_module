@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/26 19:29:43 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/29 12:37:52 by iugolin          ###   ########.fr       */
+/*   Created: 2023/09/02 22:11:16 by iugolin           #+#    #+#             */
+/*   Updated: 2023/09/03 14:48:10 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-int	main(int argc, char **argv)
+# include <string>
+# include <iostream>
+
+class WrongAnimal
 {
-	if (argc < 2)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
-	}
-	else
-	{
-		for (int i = 1; argv[i]; i++)
-		{
-			for (int j = 0; argv[i][j]; j++)
-				std::cout << (char)toupper(argv[i][j]);
-			if (i < argc - 1)
-				std::cout << " ";
-		}
-	}
-	std::cout << std::endl;
-	return (0);
-}
+	public:
+		WrongAnimal(void);
+		WrongAnimal(WrongAnimal const & other);
+		virtual ~WrongAnimal(void);
+		void makeSound(void) const;
+
+		std::string getType(void) const;
+		WrongAnimal & operator=(WrongAnimal const & rhs);
+	protected:
+		std::string type;
+};
+
+#endif

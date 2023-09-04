@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:54:58 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/24 12:04:48 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/29 12:40:49 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ class PhoneBook
 
 std::string colorString(std::string str, std::string color);
 std::string resizeField(std::string text);
-void getInput(const std::string& prompt, std::string& input);
+void getInput(const std::string & prompt, std::string & input);
 
 #endif

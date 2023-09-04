@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:28:47 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/22 13:05:40 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/08/29 12:40:24 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ class Contact
 		Contact(void);
 		~Contact(void);
 
-		std::string getFirstName(void) const;
-		std::string getLastName(void) const;
-		std::string getNickname(void) const;
-		std::string getPhoneNumber(void) const;
-		std::string getDarkestSecret(void) const;
-
 		void setFirstName(std::string str);
 		void setLastName(std::string str);
 		void setNickname(std::string str);
 		void setPhoneNumber(std::string str);
 		void setDarkestSecret(std::string str);
-	
+
+		std::string getFirstName(void) const;
+		std::string getLastName(void) const;
+		std::string getNickname(void) const;
+		std::string getPhoneNumber(void) const;
+		std::string getDarkestSecret(void) const;
+		
 	private:
 		std::string _firstName;
 		std::string _lastName;

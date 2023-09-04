@@ -6,7 +6,7 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/08/28 18:24:56 by iugolin          ###   ########.fr        #
+#    Updated: 2023/09/03 23:52:40 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,4 +45,8 @@ fclean :
 
 re : fclean all
 
-.PHONY : all clean fclean re
+leak : all
+	leaks -atExit -- ./$(NAME)
+
+.PHONY : all clean fclean re leak
+

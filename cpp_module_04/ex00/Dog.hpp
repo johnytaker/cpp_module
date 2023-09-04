@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/26 19:29:43 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/29 12:37:52 by iugolin          ###   ########.fr       */
+/*   Created: 2023/09/03 13:08:53 by iugolin           #+#    #+#             */
+/*   Updated: 2023/09/03 13:25:20 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int	main(int argc, char **argv)
+# include "Animal.hpp"
+
+class Dog : public Animal
 {
-	if (argc < 2)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
-	}
-	else
-	{
-		for (int i = 1; argv[i]; i++)
-		{
-			for (int j = 0; argv[i][j]; j++)
-				std::cout << (char)toupper(argv[i][j]);
-			if (i < argc - 1)
-				std::cout << " ";
-		}
-	}
-	std::cout << std::endl;
-	return (0);
-}
+	public:
+		Dog(void);
+		Dog(Dog const & other);
+		~Dog(void);
+		void makeSound(void) const;
+
+		Dog & operator=(Dog const & rhs);
+};
+
+#endif
