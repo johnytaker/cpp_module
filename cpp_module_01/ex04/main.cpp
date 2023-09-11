@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 21:50:01 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/24 13:16:29 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/08 15:57:11 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int usage(const char *programName)
 	return (1);
 }
 
-void readAndReplace(const std::string& inputFile, const std::string& s1, const std::string& s2)
+void readAndReplace(const std::string & inputFile, const std::string & s1, const std::string & s2)
 	{
-		std::ifstream ifs(inputFile);
+		std::ifstream ifs(inputFile.c_str());
 		if (!ifs.is_open())
 		{
 			std::cerr << "Could not open input file" << std::endl;
@@ -31,7 +31,7 @@ void readAndReplace(const std::string& inputFile, const std::string& s1, const s
 		}
 
 		std::string outputFile = inputFile + ".replace";
-		std::ofstream ofs(outputFile);
+		std::ofstream ofs(outputFile.c_str());
 		if (!ofs.is_open())
 		{
 			std::cerr << "Could not create output file" << std::endl;

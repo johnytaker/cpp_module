@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:48:39 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/20 17:00:36 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/08 15:32:16 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include <stdlib.h>
 
 class Zombie
 {

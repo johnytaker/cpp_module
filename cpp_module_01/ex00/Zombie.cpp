@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 20:07:57 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/24 12:16:10 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/11 10:52:31 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Zombie::Zombie(std::string Name) : name(Name) {}
 
 Zombie::~Zombie(void)
 {
-	std::cout << this->name << " died... again" << std::endl;
+	std::cout << this->name << " died..." << std::endl;
 }
 void Zombie::announce(void)
 {

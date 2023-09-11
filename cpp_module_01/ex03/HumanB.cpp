@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 18:18:45 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/13 18:32:12 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/08 17:59:29 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 HumanB::HumanB(std::string name) : name(name)
 {
-	this->weapon = nullptr;
+	this->weapon = NULL;
 }
 
 HumanB::~HumanB(void) {}
