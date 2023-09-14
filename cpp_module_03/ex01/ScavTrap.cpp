@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 19:43:33 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/28 20:12:57 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:29:58 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ ScavTrap::ScavTrap(void)
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
-	std::cout << "ScavTrap Default constructor called" << std::endl;
+	std::cout << "ScavTrap " << _name << " constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string const name)
+ScavTrap::ScavTrap(std::string const name) : ClapTrap(name)
 {
 	this->_name = name;;
 	this->hitPoints = 100;

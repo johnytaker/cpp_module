@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 18:18:45 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/08 17:59:29 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/11 13:17:43 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ HumanB::~HumanB(void) {}
 
 void HumanB::setWeapon(Weapon &weapon)
 {
-	this->weapon = &weapon;
+	this->weapon = & weapon;
 }
 void HumanB::attack(void)
 {

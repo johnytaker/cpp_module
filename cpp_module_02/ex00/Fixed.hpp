@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:54:42 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/19 17:15:08 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/13 11:07:51 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class Fixed
 {
 	public:
 		Fixed();
-		Fixed(const Fixed &other);
-		Fixed &operator=(const Fixed &other);
+		Fixed(Fixed const & other);
+		Fixed & operator=(Fixed const & other);
 		~Fixed();
 		int getRawBits(void) const;
 		void setRawBits(int const raw);

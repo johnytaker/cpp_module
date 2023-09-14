@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 17:53:18 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/20 17:12:41 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/11 13:17:22 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class HumanA
 		void attack(void);
 	private:
 		std::string name;
-		Weapon &weapon;
+		Weapon & weapon;
 };
 
 #endif

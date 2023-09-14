@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 00:42:50 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/29 12:27:16 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/14 13:18:16 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ FragTrap::FragTrap(void)
 {
 	this->_name = "Default";
 	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
-	std::cout << "FragTrap Default constructor called" << std::endl;
+	this->energyPoints = 100;
+	this->attackDamage = 30;
+	std::cout << "FragTrap " << _name << " constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string const name)
+FragTrap::FragTrap(std::string const name) : ClapTrap(name)
 {
 	this->_name = name;;
 	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
+	this->energyPoints = 100;
+	this->attackDamage = 30;
 	std::cout << "FragTrap " << _name << " constructor called" << std::endl;
 }
 
@@ -51,5 +51,5 @@ FragTrap & FragTrap::operator=(FragTrap const & rhs)
 
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap " << _name << " says: 'High Five!'" << std::endl;
+	std::cout << "FragTrap " << _name << " says: High Five, Guys!" << std::endl;
 }

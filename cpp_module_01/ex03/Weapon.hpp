@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 16:09:50 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/20 17:12:54 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/11 13:16:58 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Weapon
 	public:
 		Weapon(std::string type);
 		~Weapon(void);
-		const std::string &getType(void);
+		const std::string & getType(void);
 		void setType(std::string type);
 	private:
 		std::string type;

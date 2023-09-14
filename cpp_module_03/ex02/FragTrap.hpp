@@ -6,12 +6,12 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 00:10:40 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/29 00:41:56 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/14 13:14:46 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
-# define FRAPRAP_HPP
+# define FRAGTRAP_HPP
 
 # include "ClapTrap.hpp"
 

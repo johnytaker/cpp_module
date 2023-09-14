@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:21:42 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/25 21:25:55 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/13 12:10:49 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Fixed::Fixed() : fixedPoint(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(int const num) : fixedPoint(num << Fixed::fractionalBits)
+Fixed::Fixed(int const num) : fixedPoint(num << fractionalBits)
 {
 	std::cout << "Int constructor called" << std::endl;
 }
@@ -48,7 +48,7 @@ Fixed::~Fixed()
 
 float Fixed::toFloat(void) const
 {
-	return ((float) fixedPoint / (float) (1 << fractionalBits));
+	return ((float)fixedPoint / (float)(1 << fractionalBits));
 }
 
 int Fixed::toInt(void) const

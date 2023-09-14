@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 19:06:52 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/11 11:03:12 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/11 13:02:25 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	int numberOfZombies = atoi(argv[1]);
 	std::string zombieName = argv[2];
 
-	Zombie *horde = zombieHorde(numberOfZombies, zombieName);
+	Zombie * horde = zombieHorde(numberOfZombies, zombieName);
 	if (horde)
 	{
 		for (int i = 0; i < numberOfZombies; i++)

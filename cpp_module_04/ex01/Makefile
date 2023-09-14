@@ -6,7 +6,7 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/09/03 23:52:14 by iugolin          ###   ########.fr        #
+#    Updated: 2023/09/13 11:06:05 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,7 @@ fclean :
 
 re : fclean all
 
-leak : all
-	leaks -atExit -- ./$(NAME)
+val : all
+	valgrind --leak-check=full ./$(NAME)
 
-
-.PHONY : all clean fclean re leak
+.PHONY : all clean fclean re val

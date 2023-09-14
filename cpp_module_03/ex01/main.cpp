@@ -6,22 +6,23 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:12:37 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/28 20:17:59 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/14 12:57:36 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+// #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 int main (void)
 {
-	ScavTrap first("Spring");
-	first.guardGate();
-	first.attack("Somebody");
-	first.takeDamage(70);
+	ScavTrap robot("Body");
 
-	ScavTrap second("Summer");
-	second.takeDamage(99);
-	second.beRepaired(100);
+	robot.guardGate();
+	for (int i = 0; i < 51; i++)
+		robot.attack("Somebody");
+	robot.takeDamage(99);
+	robot.beRepaired(99);
+	robot.takeDamage(1);
+	
 	return (0);
 }

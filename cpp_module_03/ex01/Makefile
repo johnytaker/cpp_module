@@ -6,11 +6,11 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/09/03 23:52:51 by iugolin          ###   ########.fr        #
+#    Updated: 2023/09/13 16:44:04 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = clap_trap
+NAME = scav_trap
 
 CXX = c++
 
@@ -31,23 +31,23 @@ all : $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "\nclap_trap updated"
+	@echo "\nscav_trap updated"
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)
-	@echo "\nclap_trap clean done"
+	@echo "\nscav_trap clean done"
 
 fclean :
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
-	@echo "\nclap_trap fclean done"
+	@echo "\nscav_trap fclean done"
 
 re : fclean all
 
-leak : all
-	leaks -atExit -- ./$(NAME)
+val : all
+	valgrind --leak-check=full ./$(NAME)
 
-.PHONY : all clean fclean re leak
+.PHONY : all clean fclean re val

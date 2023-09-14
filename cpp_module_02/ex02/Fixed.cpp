@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:21:42 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/26 10:27:01 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/13 12:45:10 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,13 @@ Fixed & Fixed::operator-(Fixed const & rhs)
 
 Fixed & Fixed::operator*(Fixed const & rhs)
 {
-	this->setRawBits(fixedPoint * rhs.getRawBits() / (1 << fractionalBits));
+	this->setRawBits((fixedPoint * rhs.getRawBits()) / (1 << fractionalBits));
 	return *this;
 }
 
 Fixed & Fixed::operator/(Fixed const & rhs)
 {
-	this->setRawBits(fixedPoint / rhs.getRawBits() * (1 << fractionalBits));
+	this->setRawBits((fixedPoint * (1 << fractionalBits)) / rhs.getRawBits());
 	return *this;
 }
 
