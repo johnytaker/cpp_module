@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:28:04 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/03 13:49:42 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/15 15:27:46 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ std::string Animal::getType(void) const
 
 Animal & Animal::operator=(Animal const & rhs)
 {
-	this->type = rhs.type;
+	if (this != &rhs)
+		this->type = rhs.type;
 	return *this;
 }

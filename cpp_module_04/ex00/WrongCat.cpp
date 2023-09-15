@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 13:13:04 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/03 16:50:44 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/15 15:41:17 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void WrongCat::makeSound(void) const
 
 WrongCat & WrongCat::operator=(WrongCat const & rhs)
 {
-	this->type = rhs.type;
+	if (this != &rhs)
+		this->type = rhs.type;
 	return *this;
 }
