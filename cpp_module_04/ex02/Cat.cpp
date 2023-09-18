@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 13:13:04 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/04 23:23:49 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/18 15:37:07 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ Cat::Cat(void)
 Cat::Cat(Cat const & other) : AAnimal(other)
 {
 	std::cout << "Copy Cat constructor called" << std::endl;
-	this->brain = new Brain(* other.brain);
+	this->brain = new Brain(*(other.brain));
+	// this->brain = other.brain;
 	this->type = other.getType();
 }
 
@@ -39,16 +40,18 @@ void Cat::makeSound(void) const
 
 Cat & Cat::operator=(Cat const & rhs)
 {
-	// this->type = rhs.getType();
-	// this->brain = rhs.brain;
-	// return *this;
-
-	if (this == &rhs)
-		return *this;
-	if (rhs.brain != NULL)
-		this->brain = new Brain(* rhs.brain);
-	else
-		this->brain = NULL;
-	this->type = rhs.getType();
+	// std::cout << "Cat Copy assignment operator called" << std::endl;
+	if (this != &rhs)
+	{
+		if (this->brain)
+			delete this->brain;
+		this->brain = new Brain();
+		*this->brain = *rhs.brain;
+		this->type = rhs.getType();
+	}
 	return *this;
+}
+Brain * Cat::getBrain(void) const
+{
+	return this->brain;
 }

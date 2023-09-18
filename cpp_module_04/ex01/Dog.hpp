@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 13:08:53 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/03 16:59:29 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/18 15:40:06 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog : public Animal
 {
 	public:
 		Dog(void);
 		Dog(Dog const & other);
-		~Dog(void);
+		virtual ~Dog(void);
 		void makeSound(void) const;
 
 		Dog & operator=(Dog const & rhs);
+		Brain * getBrain(void) const;
 	private:
 		Brain * brain;
 };

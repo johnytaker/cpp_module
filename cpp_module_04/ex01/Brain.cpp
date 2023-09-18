@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:36:36 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/15 16:37:00 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/18 12:58:43 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 Brain::Brain(void)
 {
 	std::cout << "Default Brain constructor called" << std::endl;
-	for (int i = 0; i < 100; i++)
-		ideas[i] = "Thought";
 }
+
 Brain::Brain(Brain const & other)
 {
 	std::cout << "Copy Brain constructor called" << std::endl;
-	*this = other;
+	for (size_t i = 0; i < 100; i++)
+		this->ideas[i] = other.ideas[i];
+	// *this = other;
 }
 
 Brain::~Brain(void)

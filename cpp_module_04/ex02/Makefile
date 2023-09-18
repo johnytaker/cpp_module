@@ -6,7 +6,7 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/09/13 11:06:15 by iugolin          ###   ########.fr        #
+#    Updated: 2023/09/18 15:01:51 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,17 +21,14 @@ RM = @rm -rf
 INCLUDES =	Brain.hpp		\
 			AAnimal.hpp		\
 			Cat.hpp			\
-			Dog.hpp			\
-			WrongAnimal.hpp	\
-			WrongCat.hpp
+			Dog.hpp
+
 
 SRCS =		Brain.cpp		\
 			AAnimal.cpp		\
 			Cat.cpp			\
 			Dog.cpp			\
-			main.cpp		\
-			WrongAnimal.cpp	\
-			WrongCat.cpp
+			main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
