@@ -6,7 +6,7 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/09/20 18:54:57 by iugolin          ###   ########.fr        #
+#    Updated: 2023/09/21 13:51:00 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,17 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-INCLUDES =	Bureaucrat.hpp	\
-			AForm.hpp
+INCLUDES =	Bureaucrat.hpp				\
+			AForm.hpp					\
+			ShrubberyCreationForm.hpp	\
+			RobotomyRequestForm.hpp		\
+			PresidentialPardonForm.hpp
 
-SRCS =		Bureaucrat.cpp	\
-			AForm.cpp		\
+SRCS =		Bureaucrat.cpp				\
+			AForm.cpp					\
+			ShrubberyCreationForm.cpp	\
+			RobotomyRequestForm.cpp		\
+			PresidentialPardonForm.cpp	\
 			main.cpp
 
 OBJS = $(SRCS:.cpp=.o)

@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:14:40 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/20 18:54:15 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/21 11:56:05 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ class Bureaucrat
 		};
 
 		void signForm(AForm & form);
-
+		void executeForm(AForm const & form);
 
 	private:
 		std::string const _name;

@@ -6,13 +6,13 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:25:23 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/20 18:54:42 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/21 11:29:01 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-// Form::Form(void) : _name("Default"), _gradeToSign(150), _gradeToExecute(150), _signed(0)
+// Form::Form(void) : _name("Default"), _gradeToSign(150), _gradeToExecute(150), _signed(false)
 // {
 // 	std::cout << "Form " << _name << " constructor called" << std::endl;
 // }
@@ -75,9 +75,15 @@ const char * AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high");
 }
+
 const char * AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low");
+}
+
+const char * AForm::FormNotSignedException::what() const throw()
+{
+	return ("Form is not signed");
 }
 
 std::ostream & operator<<(std::ostream & os, AForm const & form)

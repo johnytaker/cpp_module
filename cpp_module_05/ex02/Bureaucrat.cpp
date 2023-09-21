@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:19:57 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/20 18:34:25 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/21 14:01:30 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const & rhs)
 {
-	std::cout << "Bureaucrat " << _name << " copy assignment operator called" << std::endl;
+	// std::cout << "Bureaucrat " << _name << " copy assignment operator called" << std::endl;
 	if (this != &rhs)
 		this->_grade = rhs.getGrade();
 	return *this;
@@ -84,7 +84,7 @@ std::ostream & operator<<(std::ostream & os, Bureaucrat const & bureaucrat)
 	return os;
 }
 
-void Bureaucrat::signForm(Form & form)
+void Bureaucrat::signForm(AForm & form)
 {
 	try
 	{
@@ -96,4 +96,19 @@ void Bureaucrat::signForm(Form & form)
 		std::cout << this->getName() << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << *this << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception & e)
+	{
+		std::cerr << *this << " didn't execute " << form.getName() <<  e.what() << '\n';
+	}
+	
+	
 }
