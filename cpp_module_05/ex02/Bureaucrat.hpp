@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:14:40 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/20 18:30:57 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/20 18:54:15 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <string>
 # include <iostream>
+# include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -42,6 +45,9 @@ class Bureaucrat
 			public:
 				const char * what() const throw();
 		};
+
+		void signForm(AForm & form);
+
 
 	private:
 		std::string const _name;
