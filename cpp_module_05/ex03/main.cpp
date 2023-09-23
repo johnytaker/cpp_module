@@ -6,68 +6,67 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:28:34 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/22 18:35:16 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/23 12:51:28 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
+
+# define GRADE 10
 
 int main(void)
 {
-	Form * form = new Form("420", 130, 30);
-	std::cout << *form << std::endl;
+	Bureaucrat * bobby = new Bureaucrat("Bobby", GRADE);
+	Intern randomInterm;
+	AForm *new_form = NULL;
 	{
 		std::cout << "---------------test01---------------" << std::endl;
-		try
+
+		new_form = randomInterm.makeForm("shrubbery creation", "plant");
+		if (new_form)
 		{
-			Bureaucrat * bob = new Bureaucrat("Bob", 131);
-			Form *new_form = form;
-			bob->signForm(*new_form);
-			delete bob;
-		}
-		catch (std::exception const & e)
-		{
-			std::cerr << "Caught exception: " << e.what() << std::endl;
+			bobby->signForm(*new_form);
+			bobby->executeForm(*new_form);
+			delete new_form;
 		}
 	}
 	{
 		std::cout << "---------------test02---------------" << std::endl;
-		try
+
+		new_form = randomInterm.makeForm("robotomy request", "printer");
+		if (new_form)
 		{
-			Bureaucrat * josh = new Bureaucrat("Josh", 129);
-			Form *new_form = form;
-			josh->signForm(*new_form);
-			delete josh;
-		}
-		catch (std::exception const & e)
-		{
-			std::cerr << "Caught exception: " << e.what() << std::endl;
+			bobby->signForm(*new_form);
+			bobby->executeForm(*new_form);
+			delete new_form;
 		}
 	}
-	delete form;
 	{
 		std::cout << "---------------test03---------------" << std::endl;
-		try
+
+		new_form = randomInterm.makeForm("presidential pardon", "Alex");
+		if (new_form)
 		{
-			Form * f = new Form("F-222a", 300, 10);
-			delete f;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << "Caught exception: " << e.what() << std::endl;
+			bobby->signForm(*new_form);
+			bobby->executeForm(*new_form);
+			delete new_form;
 		}
 	}
 	{
 		std::cout << "---------------test04---------------" << std::endl;
-		try
+
+		new_form = randomInterm.makeForm("invalid form", "target");
+		if (new_form)
 		{
-			Form * f = new Form("F-222a", 0, -100);
-			delete f;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << "Caught exception: " << e.what() << std::endl;
+			bobby->executeForm(*new_form);
+			bobby->signForm(*new_form);
+			delete new_form;
 		}
 	}
+	delete bobby;
 	return (0);
 }

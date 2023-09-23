@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:14:40 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/20 18:30:57 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/22 17:12:59 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@
 class Bureaucrat
 {
 	public:
-		Bureaucrat(void);
 		Bureaucrat(std::string const name, int grade);
 		Bureaucrat(Bureaucrat const & other);
-		~Bureaucrat();
+		~Bureaucrat(void);
 
 		Bureaucrat & operator=(Bureaucrat const & rhs);
 
@@ -44,6 +43,7 @@ class Bureaucrat
 		};
 
 	private:
+		Bureaucrat(void);
 		std::string const _name;
 		int _grade;
 };

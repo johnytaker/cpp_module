@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:42:58 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/20 18:33:10 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/22 18:41:09 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Bureaucrat;
 class Form
 {
 	public:
-		// Form(void);
+
 		Form(std::string const name, int const gradeToSign, int const gradeToExecute);
 		Form(Form const & other);
 		~Form(void);
@@ -46,12 +46,16 @@ class Form
 			public:
 				const char * what() const throw();
 		};
+
 	private:
+
+		Form(void);
 		std::string const _name;
 		int const _gradeToSign;
 		int const _gradeToExecute;
 		bool _signed;;
 };
+
 std::ostream & operator<<(std::ostream & os, Form const & form);
 
 #endif
