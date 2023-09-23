@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 00:27:38 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/23 12:50:08 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/23 13:42:39 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,40 +32,54 @@ const char * Intern::IncorrectFormException::what() const throw()
 	return "Incorrect form name";
 }
 
+static AForm * shrubberyCreateForm(std::string const & target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+
+static AForm * robotomyCreatetForm(std::string const & target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+static AForm * pardonCreateForm(std::string const & target)
+{
+	return (new PresidentialPardonForm(target));
+}
+
+
+
 AForm * Intern::makeForm(std::string const formName, std::string const target)
 {
-	AForm * ptr = NULL;
-	std::string forms[3] =
+	AForm * (* funcArr[3])(std::string const &target) =
+	{
+		shrubberyCreateForm,
+		robotomyCreatetForm,
+		pardonCreateForm
+	};
+	std::string formNames[3] =
 	{
 		"shrubbery creation",
 		"robotomy request",
 		"presidential pardon"
 	};
+	AForm * ret = NULL;
+
 	try
 	{
-		int i = 0;
-		while (i < 3 && formName != forms[i])
-			i++;
-		switch (i)
+		for (int i = 0; i < 3; i++)
 		{
-			case 0:
-				ptr = new ShrubberyCreationForm(target);
-				break;
-			case 1:
-				ptr = new RobotomyRequestForm(target);
-				break;
-			case 2:
-				ptr = new PresidentialPardonForm(target);
-				break;
-			default:
-				throw IncorrectFormException();
+			if (formName == formNames[i])
+				ret = funcArr[i](target);
 		}
-		std::cout << "Intern creates " << *ptr << std::endl;
-		// return ptr;
+		if (ret)
+			std::cout << "Intern creates " << *ret << std::endl;
+		else
+			throw IncorrectFormException();
 	}
 	catch(const std::exception & e)
 	{
 		std::cerr << "Exception caught: " << e.what() << '\n';
 	}
-	return ptr;
+	return ret;
 }
