@@ -6,14 +6,14 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 00:27:25 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/23 01:48:46 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/23 13:55:55 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INTERN_HPP
 # define INTERN_HPP
 
-# include "Aform.hpp"
+# include "AForm.hpp"
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"

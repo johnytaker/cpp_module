@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:54:42 by iugolin           #+#    #+#             */
-/*   Updated: 2023/08/25 21:07:27 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/09/24 20:35:06 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,5 @@ class Fixed
 std::ostream & operator<<(std::ostream & os, Fixed const & i);
 
 #endif
+
+
