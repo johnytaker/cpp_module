@@ -5,18 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 21:19:46 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/04 14:42:21 by iugolin          ###   ########.fr       */
+/*   Created: 2023/10/04 21:50:16 by iugolin           #+#    #+#             */
+/*   Updated: 2023/10/04 22:27:53 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Base.hpp"
+#include "functions.hpp"
+#include <ctime>
+#include <cstdlib>
 
-int main (int ac ,char **av)
+int main(void)
 {
-	if (ac != 2)
-		std::cerr << "USAGE:  ./converter [number_to_convert]" << std::endl;
-	ScalarConverter::convert(av[1]);
+	srand(time(NULL));
 
+	for (int i = 0; i < 5; i++)
+	{
+		Base * object = generate();
+		identify(object);
+		identify(*object);
+
+		delete object;
+	}
 	return (0);
 }

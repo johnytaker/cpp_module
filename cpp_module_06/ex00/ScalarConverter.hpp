@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 16:54:24 by iugolin           #+#    #+#             */
-/*   Updated: 2023/09/25 10:40:21 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/10/04 17:38:11 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,21 @@
 # include <sstream>
 # include <limits>
 # include <cmath>
+# include <iomanip>
 
 # define PLUS_INF	(1.0f/0.0f)
 # define MINUS_INF	(-1.0f/0.0f)
-# define NAN		(0.0f/0.0f)
+# define NANF		(0.0f/0.0f)
 
 class ScalarConverter
 {
 	public:
-		ScalarConverter(std::string const literal);
-		ScalarConverter(ScalarConverter const & other);
-		~ScalarConverter(void);
-
-		ScalarConverter & operator=(ScalarConverter const & rhs);
-
 		static void convert(std::string const & literal);
-
 	private:
 		ScalarConverter(void);
-		std::string const _literal;
+		ScalarConverter(ScalarConverter const & other);
+		ScalarConverter & operator=(ScalarConverter const & rhs);
+		~ScalarConverter(void);
 };
 
 #endif

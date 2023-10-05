@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 21:19:46 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/04 14:42:21 by iugolin          ###   ########.fr       */
+/*   Created: 2023/10/04 19:06:27 by iugolin           #+#    #+#             */
+/*   Updated: 2023/10/04 19:06:35 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef B_HPP
+# define B_HPP
 
-int main (int ac ,char **av)
-{
-	if (ac != 2)
-		std::cerr << "USAGE:  ./converter [number_to_convert]" << std::endl;
-	ScalarConverter::convert(av[1]);
+#include "Base.hpp"
 
-	return (0);
-}
+class Base;
+
+class B : public Base {};
+
+#endif
