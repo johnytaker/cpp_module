@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 19:11:43 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/04 22:26:55 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/10/05 13:55:18 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,63 @@
 
 Base * generate(void)
 {
-	int random = rand() % 3;
-	if (random == 0)
+	switch (rand() % 3)
+	{
+	case 0:
 		return new A();
-	else if (random == 1)
+	case 1:
 		return new B();
-	else
+	case 2:
 		return new C();
+	default:
+		std::cout << "Invalid value" << std::endl;
+		break;
+	}
+	return (NULL);
 }
 
 void identify(Base * p)
 {
 	if (dynamic_cast<A *>(p) != NULL)
-		std::cout << "A" << std::endl;
+		std::cout << "The actual type of the object is A" << std::endl;
 	else if (dynamic_cast<B *>(p) != NULL)
-		std::cout << "B" << std::endl;
+		std::cout << "The actual type of the object is B" << std::endl;
 	else if (dynamic_cast<C *>(p) != NULL)
-		std::cout << "C" <<std::endl;
+		std::cout << "The actual type of the object is C" <<std::endl;
 	else
-		std::cout << "¯\\_(ツ)_/¯" << std::endl;
+		std::cout << "Invalid type" << std::endl;
 }
 
 void identify(Base & p)
 {
-	identify(&p);
+	try
+	{
+		A & a = dynamic_cast<A &>(p);
+		(void)a;
+		std::cout << "The actual type of the object is A" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		B & b = dynamic_cast<B &>(p);
+		(void)b;
+		std::cout << "The actual type of the object is B" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		C & c = dynamic_cast<C &>(p);
+		(void)c;
+		std::cout << "The actual type of the object is C" <<std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

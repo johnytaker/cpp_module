@@ -6,7 +6,7 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/10/04 21:46:07 by iugolin          ###   ########.fr        #
+#    Updated: 2023/10/05 12:41:41 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,19 +34,19 @@ all : $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "\nserialize updated"
+	@echo "\nidentify updated"
 
 %.o: %.cpp $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)
-	@echo "\nserialize clean done"
+	@echo "\nidentify clean done"
 
 fclean :
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
-	@echo "\nserialize fclean done"
+	@echo "\nidentify fclean done"
 
 re : fclean all
 

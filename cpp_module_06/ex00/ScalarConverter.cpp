@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 17:14:44 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/04 17:38:18 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/10/05 12:20:44 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,27 @@ static void printInt(int const & intResult, int const & flag)
 
 static void printFloat(float const & floatResult, int precision)
 {
+	
+	std::cout << "float: ";
 	if (precision)
-		std::cout << "float: " << std::fixed << std::setprecision(precision) << floatResult << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(precision) << floatResult << "f" << std::endl;
 	else
-		std::cout << "float: " << std::fixed << std::setprecision(1) << floatResult << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << floatResult << "f" << std::endl;
 }
 
 static void printDouble(double const & doubleResult, int precision)
 {
+	
+	std::cout << "double: ";
 	if (precision)
-		std::cout << "double: " << std::fixed << std::setprecision(precision) << doubleResult << std::endl;
+		std::cout << std::fixed << std::setprecision(precision) << doubleResult << std::endl;
 	else
-		std::cout << "double: " << std::fixed << std::setprecision(1) << doubleResult << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << doubleResult << std::endl;
+}
+
+static void ftError(void)
+{
+	std::cerr << "Invalid literal. Conversion is impossible." << std::endl;
 }
 
 void ScalarConverter::convert(std::string const & literal)
@@ -137,6 +146,11 @@ void ScalarConverter::convert(std::string const & literal)
 			intResult = 0;
 			floatResult = PLUS_INF;
 			doubleResult = PLUS_INF;
+		}
+		else
+		{
+			ftError();
+			return ;
 		}
 	}
 	printChar(charResult, flag);
