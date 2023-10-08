@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 19:29:04 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/07 13:42:12 by iugolin          ###   ########.fr       */
+/*   Created: 2023/10/07 14:32:56 by iugolin           #+#    #+#             */
+/*   Updated: 2023/10/07 14:58:27 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
-# include "ClapTrap.hpp"
+# include <iostream>
 
-class ScavTrap : public ClapTrap
+template <typename T>
+void iter(T * arr, int len, void (* func)(T const & t))
 {
-	public:
-		ScavTrap(void);
-		ScavTrap(std::string const name);
-		ScavTrap(ScavTrap & other);
-		~ScavTrap(void);
+	for (int i = 0; i < len; i++)
+		func(arr[i]);
+}
 
-		ScavTrap & operator=(ScavTrap const & rhs);
-		void attack(const std::string & target);
-		void guardGate();
-};
 #endif

@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 17:14:44 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/05 12:20:44 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/10/06 14:42:30 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void printInt(int const & intResult, int const & flag)
 
 static void printFloat(float const & floatResult, int precision)
 {
-	
+
 	std::cout << "float: ";
 	if (precision)
 		std::cout << std::fixed << std::setprecision(precision) << floatResult << "f" << std::endl;
@@ -73,7 +73,7 @@ static void printFloat(float const & floatResult, int precision)
 
 static void printDouble(double const & doubleResult, int precision)
 {
-	
+
 	std::cout << "double: ";
 	if (precision)
 		std::cout << std::fixed << std::setprecision(precision) << doubleResult << std::endl;

@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 19:29:04 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/07 13:42:12 by iugolin          ###   ########.fr       */
+/*   Created: 2023/10/07 16:06:26 by iugolin           #+#    #+#             */
+/*   Updated: 2023/10/07 20:14:43 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ARRAY_HPP
+# define APPAY_HPP
 
-# include "ClapTrap.hpp"
+# include <iostream>
 
-class ScavTrap : public ClapTrap
+template<class T>
+class Array
 {
 	public:
-		ScavTrap(void);
-		ScavTrap(std::string const name);
-		ScavTrap(ScavTrap & other);
-		~ScavTrap(void);
+		Array(void);
+		Array(unsigned int n);
+		Array(Array<T> const & other);
+		~Array(void);
 
-		ScavTrap & operator=(ScavTrap const & rhs);
-		void attack(const std::string & target);
-		void guardGate();
+		Array<T> & operator=(Array<T> const & rhs);
+		T & operator[](unsigned int const index) const;
+
+		int size(void) const;
+	private:
+		T * arr;
+		unsigned int _n;
 };
+
+# include "Array.tpp"
+
 #endif

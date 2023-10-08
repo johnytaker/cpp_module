@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Template.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 19:29:04 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/07 13:42:12 by iugolin          ###   ########.fr       */
+/*   Created: 2023/10/07 14:09:32 by iugolin           #+#    #+#             */
+/*   Updated: 2023/10/07 14:25:49 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef TEMPLATE_HPP
+# define TEMPLATE_HPP
 
-# include "ClapTrap.hpp"
+# include <iostream>
 
-class ScavTrap : public ClapTrap
-{
-	public:
-		ScavTrap(void);
-		ScavTrap(std::string const name);
-		ScavTrap(ScavTrap & other);
-		~ScavTrap(void);
+template <typename T>
+void swap(T & a, T & b) {T tmp = a; a = b; b = tmp;}
 
-		ScavTrap & operator=(ScavTrap const & rhs);
-		void attack(const std::string & target);
-		void guardGate();
-};
+template <typename T>
+T const & min(T const & a, T const & b) {return (a < b) ? a : b;}
+
+template <typename T>
+T const & max(T const & a, T const & b) {return (a > b) ? a : b;}
+
+
 #endif

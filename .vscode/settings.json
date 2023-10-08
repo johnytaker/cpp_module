@@ -76,6 +76,7 @@
 		"ranges": "cpp",
 		"span": "cpp",
 		"stack": "cpp",
-		"charconv": "cpp"
+		"charconv": "cpp",
+		"*.tpp": "cpp"
 	}
 }
