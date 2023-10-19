@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:36:24 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/08 13:47:13 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/10/08 14:10:35 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void)
 	Array<int> original(2);
 	for (int i = 0; i < 2; i++)
 	{
-		original[i] = i;
+		original[i] = i + 1;
 		std::cout << "original - "<< original[i] << std::endl;
 	}
 	Array<int>copy(original);
@@ -34,7 +34,7 @@ int main(void)
 	{
 		const Array<float> f(4);
 		f[0] = 42.42f;
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 4; i++)
 			std::cout << "Index: " << i << "; Value: " << f[i] << std::endl;
 	}
 	catch(const std::exception& e)
@@ -65,7 +65,7 @@ int main(void)
 		for (int i = 0; i < 5; i++)
 			v[i] = "string";
 		k = v;
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 6; i++) {
 			std::cout << i << " – " << v[i] << " | " << k[i] << std::endl;
 		}
 	}

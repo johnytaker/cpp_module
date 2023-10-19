@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 16:24:50 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/08 13:39:44 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/10/11 17:49:31 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ T & Array<T>::operator[](unsigned int const index) const
 }
 
 template<class T>
-int Array<T>::size(void) const
+int const &  Array<T>::size(void) const
 {
 	return (this->_n);
 }

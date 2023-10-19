@@ -6,11 +6,11 @@
 #    By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:09:12 by iugolin           #+#    #+#              #
-#    Updated: 2023/10/08 14:11:25 by iugolin          ###   ########.fr        #
+#    Updated: 2023/10/16 19:14:59 by iugolin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = array
+NAME = mutantstack
 
 CXX = c++
 
@@ -18,32 +18,29 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-INCLUDES =	Array.hpp
+INCLUDES =	MutantStack.hpp
 
-TPP = Array.tpp
-
-
-SRCS =		main.cpp
+SRCS =	main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME): $(OBJS) $(INCLUDES) $(TPP) Makefile
+$(NAME): $(OBJS) $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "\narray updated"
+	@echo "\nmutantstack updated"
 
-%.o: %.cpp $(INCLUDES) $(TPP) Makefile
+%.o: %.cpp $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)
-	@echo "\narray clean done"
+	@echo "\nmutantstack clean done"
 
 fclean :
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
-	@echo "\narray fclean done"
+	@echo "\nmutantstack fclean done"
 
 re : fclean all
 

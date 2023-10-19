@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 16:06:26 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/08 14:48:30 by iugolin          ###   ########.fr       */
+/*   Created: 2023/10/11 18:21:53 by iugolin           #+#    #+#             */
+/*   Updated: 2023/10/18 15:23:04 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_HPP
-# define APPAY_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
-# include <iostream>
+# include <algorithm>
 
-template<class T>
-class Array
+template<typename T>
+typename T::const_iterator easyfind(T const & cont, int value)
 {
-	public:
-		Array(void);
-		Array(unsigned int n);
-		Array(Array<T> const & other);
-		~Array(void);
+	typename T::const_iterator it = std::find(cont.begin(), cont.end(), value);
+	if (it == cont.end())
+		throw std::out_of_range("element not found");
+	return it;
+}
 
-		Array<T> & operator=(Array<T> const & rhs);
-		T & operator[](unsigned int const index) const;
-
-		int const &  size(void) const;
-	private:
-		T * arr;
-		unsigned int _n;
-};
-
-# include "Array.tpp"
 
 #endif

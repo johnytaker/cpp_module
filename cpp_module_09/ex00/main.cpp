@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 16:06:26 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/08 14:48:30 by iugolin          ###   ########.fr       */
+/*   Created: 2023/10/18 20:38:45 by iugolin           #+#    #+#             */
+/*   Updated: 2023/10/18 20:45:35 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_HPP
-# define APPAY_HPP
+#include "BitcoinExchange.hpp"
 
-# include <iostream>
-
-template<class T>
-class Array
+int main(void)
 {
-	public:
-		Array(void);
-		Array(unsigned int n);
-		Array(Array<T> const & other);
-		~Array(void);
-
-		Array<T> & operator=(Array<T> const & rhs);
-		T & operator[](unsigned int const index) const;
-
-		int const &  size(void) const;
-	private:
-		T * arr;
-		unsigned int _n;
-};
-
-# include "Array.tpp"
-
-#endif
+	BitcoinExchange b;
+	b.readDB();
+	b.printRateMap();
+}
