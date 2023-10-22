@@ -6,27 +6,28 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:16:07 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/19 10:38:56 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/10/22 10:14:22 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <iomanip>
-#include <iostream>
-#include <cstdlib>
-#include <fstream>
-#include <sstream>
-
-static void ft_error(std::string errorType)
-{
-	std::cout << "Error: " << errorType << "." << std::endl;
-}
 
 BitcoinExchange::BitcoinExchange(void) {}
 
-BitcoinExchange::BitcoinExchange(std::string input) : _input(input)
+BitcoinExchange::BitcoinExchange(std::string const & dbFile)
 {
-	readDB();
+	std::ifstream file(dbFile.c_str());
+	if (!file.is_open())
+		throw std::runtime_error("Error: could not open database file.");
+	std::string line;
+	while (getline(file, line))
+	{
+		std::stringstream ss(line);
+		std::string date;
+		float price;
+		if (getline(ss, date, ',') && ss >> price)
+			_rateMap[date] = price;
+	}
 }
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const & other) { *this = other; }
@@ -35,84 +36,83 @@ BitcoinExchange::~BitcoinExchange(void) {}
 
 BitcoinExchange & BitcoinExchange::operator=(BitcoinExchange const & rhs)
 {
-	(void)rhs;
+	if (this != & rhs)
+		this->_rateMap = rhs._rateMap;
 	return *this;
 }
 
-void BitcoinExchange::readDB(void)
+bool BitcoinExchange::_isValidDate(std::string const & date) const
 {
-	std::fstream fin("data.csv");
-	std::string line;
-
-	if (fin.fail())
+	int year, month, day;
+	char delimiter;
+	std::istringstream ss(date);
+	ss >> year >> delimiter >> month >> delimiter >> day;
+	if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
+		return false;
+	if ((month == 4 || month == 6 ||  month == 9 || month == 11) && day > 30)
+		return false;
+	else if (month == 2)
 	{
-		ft_error("couldn't open CSV file");
-		exit(EXIT_FAILURE);
-	}
-	std::getline(fin, line);
-	while (!fin.eof())
-	{
-		std::getline(fin, line);
-		fillRateMap(line);
-	}
-	fin.close();
-}
-
-void BitcoinExchange::printRateMap(void)
-{
-	std::map<std::string, float>::iterator it = _rateMap.begin();
-	while (it != _rateMap.end())
-	{
-		std::cout << it->first << " , " << it->second << std::endl;
-		++it;
-	}
-
-}
-void BitcoinExchange::fillRateMap(std::string line)
-{
-	std::stringstream ss(line);
-	std::string date, rate;
-
-	getline(ss, date, ',');
-	getline(ss, rate);
-	_rateMap.insert(std::map<std::string,float>::value_type(date,atof(rate.c_str())));
-}
-
-static bool checkYear(std::string year)
-{
-	int y = atoi(year.c_str());
-	if (y < 2009 || y > 2022)
-	{
-		std::cout <<
-		return (false);
+		if  (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
+		{
+			if (day > 29)
+				return false;
+		}
+		else
+		{
+			if (day > 28)
+				return false;
+		}
 	}
 	return (true);
 }
 
-static bool checkMonth(std::string month)
+float BitcoinExchange::getExchangeRate(std::string const & date, float value) const
 {
-	int m = atoi(month.c_str());
-	if (m < 1 || m > 12)
+	if (value < 0)
+		throw std::runtime_error("Error: not a positive number.");
+	if (value > 1000)
+		throw std::runtime_error("Error: too large a number.");
+	if (_isValidDate(date) == false)
+		throw std::runtime_error("Error: inexistent date.");
+	std::map<std::string, float>::const_iterator it = _rateMap.find(date);
+	if (it == _rateMap.end())
 	{
-		ft_error("month out of range");
-		return (false);
+		it = _rateMap.upper_bound(date);
+		if (it == _rateMap.begin())
+			throw std::runtime_error("Error: no exchange rate found for given date.");
+		--it;
 	}
-	return (true);
+	return (it->second);
 }
 
-static bool checkDay(std::string day)
+// const char* BitcoinExchange::RuntimeErrorException::what() const throw()
+// {
+// 	return ("Error: could not open bitcoin price database file.");
+// }
+
+// const char* BitcoinExchange::InvalidArgumentException::what() const throw()
+// {
+// 	return ("Error: no exchange rate found for given date.");
+// }
+
+// const char* BitcoinExchange::NegativeValueException::what() const throw()
+// {
+// 	return ("Error: not a positive number.");
+// }
+
+// const char* BitcoinExchange::TooLargeNumberException::what() const throw()
+// {
+// 	return ("Error: too large a number.");
+// }
+
+// const char* BitcoinExchange::InexistentDateException::what() const throw()
+// {
+// 	return ("Error: inexistent date.");
+// }
+
+std::ostream & operator<<(std::ostream & os, BitcoinExchange const & i)
 {
-	int d = atoi(day.c_str());
-	if (d < 1 || d > 31)
-	{
-		ft_error("day out of range");
-		return (false);
-	}
-	return (true);
+	(void)i;
+	return os;
 }
-
-bool BitcoinExchange::checkDate(std::string date)
-{
-
-}
-

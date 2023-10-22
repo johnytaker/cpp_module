@@ -6,7 +6,7 @@
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:06:18 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/18 16:53:26 by iugolin          ###   ########.fr       */
+/*   Updated: 2023/10/19 12:36:20 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(void)
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
-	std::cout << "<-----------test_02------------>" << std::endl;
+	std::cout << "<------------test_02------------>" << std::endl;
 	{
 		try
 		{

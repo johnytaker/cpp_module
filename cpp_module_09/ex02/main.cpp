@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 18:21:53 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/19 12:30:55 by iugolin          ###   ########.fr       */
+/*   Created: 2023/10/22 00:29:28 by iugolin           #+#    #+#             */
+/*   Updated: 2023/10/22 00:35:35 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#include "PmergeMe.hpp"
 
-# include <algorithm>
-# include <stdexcept>
-
-template<typename T>
-typename T::const_iterator easyfind(T const & cont, int value)
+int main(int ac, char **av)
 {
-	typename T::const_iterator it = std::find(cont.begin(), cont.end(), value);
-	if (it == cont.end())
-		throw std::out_of_range("element not found");
-	return it;
-}
+	if (ac < 2)
+	{
+		std::cerr << "Error: no sequence provided" << std::endl;
+		return (1);
+	}
+	try
+	{
+		PmergeMe input(ac, av);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	return (0);
 
-#endif
+}

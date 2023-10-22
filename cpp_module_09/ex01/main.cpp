@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iugolin <iugolin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 18:21:53 by iugolin           #+#    #+#             */
-/*   Updated: 2023/10/19 12:30:55 by iugolin          ###   ########.fr       */
+/*   Created: 2023/10/21 22:06:50 by iugolin           #+#    #+#             */
+/*   Updated: 2023/10/21 23:08:51 by iugolin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#include "RPN.hpp"
+#include <iostream>
 
-# include <algorithm>
-# include <stdexcept>
-
-template<typename T>
-typename T::const_iterator easyfind(T const & cont, int value)
+int main(int ac, char **av)
 {
-	typename T::const_iterator it = std::find(cont.begin(), cont.end(), value);
-	if (it == cont.end())
-		throw std::out_of_range("element not found");
-	return it;
-}
+	RPN rpn;
 
-#endif
+	if (ac != 2)
+		std::cerr << "Usage: " << av[0] << " <RPN expression>" << std::endl;
+	else
+	{
+		try
+		{
+			rpn.reversePolishNotation(av[1]);
+			std::cout << rpn << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	return (0);
+}
